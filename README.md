@@ -1,50 +1,70 @@
-# Cloover —  Case Study
+# Cloover BI Case Study
 
-## Overview
-Portfolio performance dashboard built in Qlik Cloud for Cloover's 
-residential solar loan portfolio. Covers 3,000 contracts, 39,088 
-invoices across Germany, Austria and the Netherlands.
+This repository contains a Business Intelligence case study covering SQL analysis and dashboard development using Qlik.
 
-## Deliverables
-| Item | Location |
-|---|---|
-| SQL answers | /sql |
-| Dashboard documentation | /documentation |
-| Dashboard screenshots | /screenshots |
-| Qlik .qvf file | Shared separately via email |
+---
 
-## Dashboard Sheets
-1. **Portfolio Overview** — KPIs, financing mix, country summary
-2. **Delinquency Breakdown** — DPD buckets, overdue exposure, 
-   at-risk contracts
-3. **Trend Over Time** — Monthly originations, delinquency rate trend
-4. **Exposure by Dimension** — Region, installer, product, 
-   credit band selector
+## 📊 Overview
 
-## Key Technical Decisions
-- DPD buckets created as a Master Dimension using Dual() for 
-  sort order
-- Aggr() used to evaluate principal and contract counts at 
-  contract level, preventing double-counting across invoice rows
-- Variable-driven dimension selector (vDimension) on Sheet 4 
-  allows one chart to serve four dimensions
-- Reference date: 2025-01-31 (hardcoded per case study spec)
+The project focuses on analyzing a loan portfolio, including:
 
-## Data Model
-Star schema — fct_invoice at centre joined to:
-- dim_contract (via contract_key)
-- dim_customer (via customer_key)  
-- dim_installer (via installer_key)
-- dim_date (via invoice_date_key, due_date_key, paid_date_key)
+- Portfolio overview (AUM, exposure)
+- Delinquency analysis (DPD buckets)
+- Trend analysis (originations and delinquency over time)
+- Exposure breakdown across key dimensions
 
-Note: Raw CSVs not included in this repo. 
-Data provided by Cloover as part of the case study.
+---
 
-## Key Findings
-- €56.67M total principal outstanding (Active + In Arrears)
-- 89.7% collection rate — just below 90% threshold
-- 90+ DPD bucket holds 86.3% of all overdue exposure (€906K)
-- Fair + Poor credit bands drive 66% of overdue despite being 
-  43% of the book
-- 2,002 contracts (95% of active book) have at least one 
-  invoice in 90+ DPD
+## 🧱 Repository Structure
+│ └── dashboard_documentation.docx
+│
+├── sql/
+│ ├── question_1_split_payments.sql
+│ └── question_2_time_to_first_payment.sql
+│
+├── data/
+│ └── README.md
+│
+├── qlik/
+│ └── README.md
+│
+└── screenshots/
+├── 01_portfolio_overview.png
+├── 02_delinquency_breakdown.png
+├── 03_trend_over_time.png
+└── 04_exposure_by_dimension.png
+
+
+---
+
+## 🧮 SQL Analysis
+
+### Question 1 — Split Payments
+Identifies invoices with multiple payments and calculates total paid amount.
+
+### Question 2 — Time to First Payment
+Calculates the time difference between invoice creation and first payment.
+
+---
+
+## 📈 Dashboard (Qlik)
+
+The dashboard is divided into four main sections:
+
+1. Portfolio Overview  
+2. Delinquency Breakdown  
+3. Trend Over Time  
+4. Exposure by Dimension  
+
+Screenshots are available in the `/screenshots` folder.
+
+## 🚀 Tools Used
+
+- SQL  
+- Qlik Cloud  
+- Excel / CSV data  
+
+---
+
+## 📌 Author
+Ahmad Saud Azmi
