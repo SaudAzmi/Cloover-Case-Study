@@ -8,7 +8,7 @@ This repository contains a Business Intelligence case study covering SQL analysi
 
 The project focuses on analyzing a loan portfolio, including:
 
-- Portfolio overview (AUM, exposure)
+- Portfolio overview 
 - Delinquency analysis (DPD buckets)
 - Trend analysis (originations and delinquency over time)
 - Exposure breakdown across key dimensions
